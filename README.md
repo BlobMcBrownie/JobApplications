@@ -9,4 +9,4 @@
 - Python
   - Spam filter
 - Java
--   Game Engine (currenly working on this project)
+  - Game Engine (currenly working on this project)
