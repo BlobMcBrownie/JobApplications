@@ -6,3 +6,5 @@
 - 📫 How to reach me: sykoravojtech01@gmail.com or https://www.linkedin.com/in/sykoravojtech/
 
 # Portfolio
+- Python
+Spam filter 
