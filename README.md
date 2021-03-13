@@ -1,4 +1,4 @@
-#About me
+# About me
 👋 Hi, I’m Vojtěch Sýkora @sykoravojtech
 👀 I’m interested in Artificial Intelligence
 🌱 I’m currently learning Computer Science and AI on the Czech Technical University
