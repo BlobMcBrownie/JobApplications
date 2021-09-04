@@ -1,2 +1,3 @@
 # Java - Game Engine
-I am currently working on this and will add it when it is done
+For information about this project go to https://www.notion.so/Wiki-main-page-76a83a19127c428f9bdade9d4f87b2da
+
