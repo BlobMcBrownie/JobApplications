@@ -9,4 +9,6 @@
 - Python
   - Spam filter
 - Java
-  - Game Engine (currenly working on this project)
+  - Chess Engine for Windows
+- Android (Kotlin)
+  - App communicating with multiple Bluetooth LE devices at once
