@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">SUNFIBRE MULTI BT</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">SCILIF</string>
+    <string name="nav_header_email">info@scilif.com</string>
+    <string name="nav_header_phone">+420 775 722 761</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="devices_refresh">Refresh</string>
+    <string name="on">ON</string>
+    <string name="off">OFF</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="refresh">Refresh</string>
+    <string name="ble_playground">BLE Playground</string>
+    <string name="ble">BLE</string>
+    <string name="min">MIN</string>
+    <string name="max">MAX</string>
+    <string name="blink">BLINK</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_devices">Devices</string>
+    <string name="menu_controls">Controls</string>
+    <string name="start_scan">Start Scan</string>
+    <string name="device_controls">DEVICE CONTROLS</string>
+    <string name="light_modes">Light Modes</string>
+    <string name="clothing_type">Clothing type</string>
+    <string name="enable_location">Enable Location</string>
+</resources>

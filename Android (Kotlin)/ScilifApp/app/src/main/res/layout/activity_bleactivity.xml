@@ -1,0 +1,1439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.devices.BLEActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--        TOOLBAR            -->
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/Theme.ScilifApp.AppBarOverlay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/Theme.ScilifApp.PopupOverlay" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+        <!--        END TOOLBAR       -->
+
+        <!--         SCANNING           -->
+
+        <Button
+            android:id="@+id/btn_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/start_scan"
+            android:textColor="@color/secondary_text_material_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+        <Button
+            android:id="@+id/btn_enableLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enable_location"
+            android:textColor="@color/secondary_text_material_light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scan_results_recycler_view"
+            app:layout_constraintEnd_toStartOf="@+id/btn_clearScanResults"/>
+
+        <Button
+            android:id="@+id/btn_clearScanResults"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear Results"
+            android:textColor="@color/secondary_text_material_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/btn_enableLocation"
+            app:layout_constraintTop_toTopOf="@+id/btn_enableLocation" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/scan_results_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="170dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="8dp"
+            android:paddingBottom="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_scan"
+            tools:listitem="@layout/row_scan_result" />
+        <!--          END SCANNING          -->
+
+        <TextView
+            android:id="@+id/tV_DEVICECONTROLS"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="?android:attr/colorPrimary"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/device_controls"
+            android:textColor="@color/secondary_text_material_light"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_enableLocation" />
+
+
+
+
+        <!--     ************************   -->
+        <!--        DEVICE CONTROLS 1          -->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout_controllerCard1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tV_DEVICECONTROLS">
+
+            <LinearLayout
+                android:id="@+id/layout_LED1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintStart_toEndOf="@+id/tV_deviceName1"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tV_lightModes1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/light_modes" />
+
+                <LinearLayout
+                    android:id="@+id/layout_lightModes1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView_OFF1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/off"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/textView_MAX1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/max"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/textView_MIN1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/min"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/textView_BLINK1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/blink"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekBar_LEDcontroller1"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="150dp"
+                    android:layout_height="34dp"
+                    android:max="3"
+                    android:progress="0"
+                    android:progressTint="?attr/colorPrimary"
+                    android:thumbTint="?attr/colorPrimary" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iV_clothingPiece1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/clothing_type"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_backpack" />
+
+            <TextView
+                android:id="@+id/tV_deviceName1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Device Name"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/iV_clothingPiece1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/layout_batTemp1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tV_deviceName1"
+                app:layout_constraintTop_toBottomOf="@+id/tV_deviceName1">
+
+                <LinearLayout
+                    android:id="@+id/layout_battery1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="4dp"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iV_battery1"
+                        android:layout_width="28dp"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="4dp"
+                        app:srcCompat="@drawable/ic_battery_full" />
+
+                    <TextView
+                        android:id="@+id/tV_batteryLevel1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:text="\??? %"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_temp1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iV_temp1"
+                        android:layout_width="28dp"
+                        android:layout_height="14dp"
+                        android:layout_marginEnd="4dp"
+                        app:srcCompat="@drawable/ic_fire" />
+
+                    <TextView
+                        android:id="@+id/tV_temp1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:text="\?? °C"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_RGB1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tV_RGB1"
+                        android:layout_width="28dp"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="RGB"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tV_RGBvalue1R"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="4dp"
+                        android:gravity="center"
+                        android:text="\??"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tV_RGBvalue1G"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="4dp"
+                        android:gravity="center"
+                        android:text="\??"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tV_RGBvalue1B"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="4dp"
+                        android:gravity="center"
+                        android:text="\??"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_disconnect1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="@string/disconnect"
+                    android:textColor="@color/secondary_text_material_light"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+        <!--   ********************************   -->
+        <!--        DEVICE CONTROLS 2          -->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout_controllerCard2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout_controllerCard1">
+
+            <LinearLayout
+                android:id="@+id/layout_LED2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintStart_toEndOf="@+id/tV_deviceName2"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tV_lightModes2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/light_modes" />
+
+                <LinearLayout
+                    android:id="@+id/layout_lightModes2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView_OFF2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/off"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/textView_MAX2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/max"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/textView_MIN2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/min"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/textView_BLINK2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/blink"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekBar_LEDcontroller2"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="150dp"
+                    android:layout_height="34dp"
+                    android:max="3"
+                    android:progress="0"
+                    android:progressTint="?attr/colorPrimary"
+                    android:thumbTint="?attr/colorPrimary" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iV_clothingPiece2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/clothing_type"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_backpack" />
+
+            <TextView
+                android:id="@+id/tV_deviceName2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Device Name"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/iV_clothingPiece2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/layout_batTemp2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tV_deviceName2"
+                app:layout_constraintTop_toBottomOf="@+id/tV_deviceName2">
+
+                <LinearLayout
+                    android:id="@+id/layout_battery2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="4dp"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iV_battery2"
+                        android:layout_width="28dp"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="4dp"
+                        app:srcCompat="@drawable/ic_battery_full" />
+
+                    <TextView
+                        android:id="@+id/tV_batteryLevel2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:text="\??? %"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_temp2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iV_temp2"
+                        android:layout_width="28dp"
+                        android:layout_height="14dp"
+                        android:layout_marginEnd="4dp"
+                        app:srcCompat="@drawable/ic_fire" />
+
+                    <TextView
+                        android:id="@+id/tV_temp2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:text="\?? °C"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_RGB2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tV_RGB2"
+                        android:layout_width="28dp"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="RGB"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tV_RGBvalue2R"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="4dp"
+                        android:gravity="center"
+                        android:text="\??"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tV_RGBvalue2G"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="4dp"
+                        android:gravity="center"
+                        android:text="\??"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tV_RGBvalue2B"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="4dp"
+                        android:gravity="center"
+                        android:text="\??"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_disconnect2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="@string/disconnect"
+                    android:textColor="@color/secondary_text_material_light"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout> <!-- Device 2 Controls -->
+
+
+
+
+        <!--   ********************************   -->
+        <!--        DEVICE CONTROLS 3          -->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout_controllerCard3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout_controllerCard2">
+
+            <LinearLayout
+                android:id="@+id/layout_LED3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintStart_toEndOf="@+id/tV_deviceName3"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tV_lightModes3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/light_modes" />
+
+                <LinearLayout
+                    android:id="@+id/layout_lightModes3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView_OFF3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/off"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/textView_MAX3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/max"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/textView_MIN3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/min"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/textView_BLINK3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/blink"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekBar_LEDcontroller3"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="150dp"
+                    android:layout_height="34dp"
+                    android:max="3"
+                    android:progress="0"
+                    android:progressTint="?attr/colorPrimary"
+                    android:thumbTint="?attr/colorPrimary" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iV_clothingPiece3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/clothing_type"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_backpack" />
+
+            <TextView
+                android:id="@+id/tV_deviceName3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Device Name"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/iV_clothingPiece3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/layout_batTemp3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tV_deviceName3"
+                app:layout_constraintTop_toBottomOf="@+id/tV_deviceName3">
+
+                <LinearLayout
+                    android:id="@+id/layout_battery3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="4dp"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iV_battery3"
+                        android:layout_width="28dp"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="4dp"
+                        app:srcCompat="@drawable/ic_battery_full" />
+
+                    <TextView
+                        android:id="@+id/tV_batteryLevel3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:text="\??? %"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_temp3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iV_temp3"
+                        android:layout_width="28dp"
+                        android:layout_height="14dp"
+                        android:layout_marginEnd="4dp"
+                        app:srcCompat="@drawable/ic_fire" />
+
+                    <TextView
+                        android:id="@+id/tV_temp3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:text="\?? °C"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_RGB3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tV_RGB3"
+                        android:layout_width="28dp"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="RGB"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tV_RGBvalue3R"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="4dp"
+                        android:gravity="center"
+                        android:text="\??"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tV_RGBvalue3G"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="4dp"
+                        android:gravity="center"
+                        android:text="\??"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tV_RGBvalue3B"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="4dp"
+                        android:gravity="center"
+                        android:text="\??"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_disconnect3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="@string/disconnect"
+                    android:textColor="@color/secondary_text_material_light"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout> <!-- Device 3 Controls -->
+
+
+
+
+        <!--   ********************************   -->
+        <!--        DEVICE CONTROLS 4          -->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout_controllerCard4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout_controllerCard3">
+
+            <LinearLayout
+                android:id="@+id/layout_LED4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintStart_toEndOf="@+id/tV_deviceName4"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tV_lightModes4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/light_modes" />
+
+                <LinearLayout
+                    android:id="@+id/layout_lightModes4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView_OFF4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/off"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/textView_MAX4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/max"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/textView_MIN4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/min"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/textView_BLINK4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/blink"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekBar_LEDcontroller4"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="150dp"
+                    android:layout_height="34dp"
+                    android:max="3"
+                    android:progress="0"
+                    android:progressTint="?attr/colorPrimary"
+                    android:thumbTint="?attr/colorPrimary" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iV_clothingPiece4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/clothing_type"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_backpack" />
+
+            <TextView
+                android:id="@+id/tV_deviceName4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Device Name"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/iV_clothingPiece4"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/layout_batTemp4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tV_deviceName4"
+                app:layout_constraintTop_toBottomOf="@+id/tV_deviceName4">
+
+                <LinearLayout
+                    android:id="@+id/layout_battery4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="4dp"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iV_battery4"
+                        android:layout_width="28dp"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="4dp"
+                        app:srcCompat="@drawable/ic_battery_full" />
+
+                    <TextView
+                        android:id="@+id/tV_batteryLevel4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:text="\??? %"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_temp4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iV_temp4"
+                        android:layout_width="28dp"
+                        android:layout_height="14dp"
+                        android:layout_marginEnd="4dp"
+                        app:srcCompat="@drawable/ic_fire" />
+
+                    <TextView
+                        android:id="@+id/tV_temp4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:text="\?? °C"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_RGB4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tV_RGB4"
+                        android:layout_width="28dp"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="RGB"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tV_RGBvalue4R"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="4dp"
+                        android:gravity="center"
+                        android:text="\??"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tV_RGBvalue4G"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="4dp"
+                        android:gravity="center"
+                        android:text="\??"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tV_RGBvalue4B"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="4dp"
+                        android:gravity="center"
+                        android:text="\??"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_disconnect4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="@string/disconnect"
+                    android:textColor="@color/secondary_text_material_light"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout> <!-- Device 4 Controls -->
+
+
+
+
+        <!--   ********************************   -->
+        <!--        DEVICE CONTROLS 5          -->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout_controllerCard5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout_controllerCard4">
+
+            <LinearLayout
+                android:id="@+id/layout_LED5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintStart_toEndOf="@+id/tV_deviceName5"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tV_lightModes5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/light_modes" />
+
+                <LinearLayout
+                    android:id="@+id/layout_lightModes5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView_OFF5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/off"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/textView_MAX5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/max"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/textView_MIN5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/min"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/textView_BLINK5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/blink"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekBar_LEDcontroller5"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="150dp"
+                    android:layout_height="34dp"
+                    android:max="3"
+                    android:progress="0"
+                    android:progressTint="?attr/colorPrimary"
+                    android:thumbTint="?attr/colorPrimary" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iV_clothingPiece5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/clothing_type"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_backpack" />
+
+            <TextView
+                android:id="@+id/tV_deviceName5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Device Name"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/iV_clothingPiece5"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/layout_batTemp5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tV_deviceName5"
+                app:layout_constraintTop_toBottomOf="@+id/tV_deviceName5">
+
+                <LinearLayout
+                    android:id="@+id/layout_battery5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="4dp"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iV_battery5"
+                        android:layout_width="28dp"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="4dp"
+                        app:srcCompat="@drawable/ic_battery_full" />
+
+                    <TextView
+                        android:id="@+id/tV_batteryLevel5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:text="\??? %"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_temp5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iV_temp5"
+                        android:layout_width="28dp"
+                        android:layout_height="14dp"
+                        android:layout_marginEnd="4dp"
+                        app:srcCompat="@drawable/ic_fire" />
+
+                    <TextView
+                        android:id="@+id/tV_temp5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:text="\?? °C"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_RGB5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tV_RGB5"
+                        android:layout_width="28dp"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="RGB"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tV_RGBvalue5R"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="4dp"
+                        android:gravity="center"
+                        android:text="\??"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tV_RGBvalue5G"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="4dp"
+                        android:gravity="center"
+                        android:text="\??"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tV_RGBvalue5B"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="4dp"
+                        android:gravity="center"
+                        android:text="\??"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_disconnect5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="@string/disconnect"
+                    android:textColor="@color/secondary_text_material_light"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout> <!-- Device 5 Controls -->
+
+
+
+        <!--   ********************************   -->
+        <!--        DEVICE CONTROLS 6          -->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout_controllerCard6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout_controllerCard5">
+
+            <LinearLayout
+                android:id="@+id/layout_LED6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintStart_toEndOf="@+id/tV_deviceName6"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tV_lightModes6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/light_modes" />
+
+                <LinearLayout
+                    android:id="@+id/layout_lightModes6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView_OFF6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/off"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/textView_MAX6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/max"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/textView_MIN6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/min"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/textView_BLINK6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/blink"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekBar_LEDcontroller6"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="150dp"
+                    android:layout_height="34dp"
+                    android:max="3"
+                    android:progress="0"
+                    android:progressTint="?attr/colorPrimary"
+                    android:thumbTint="?attr/colorPrimary" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iV_clothingPiece6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/clothing_type"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_backpack" />
+
+            <TextView
+                android:id="@+id/tV_deviceName6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Device Name"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/iV_clothingPiece6"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/layout_batTemp6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tV_deviceName6"
+                app:layout_constraintTop_toBottomOf="@+id/tV_deviceName6">
+
+                <LinearLayout
+                    android:id="@+id/layout_battery6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="4dp"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iV_battery6"
+                        android:layout_width="28dp"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="4dp"
+                        app:srcCompat="@drawable/ic_battery_full" />
+
+                    <TextView
+                        android:id="@+id/tV_batteryLevel6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:text="\??? %"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_temp6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iV_temp6"
+                        android:layout_width="28dp"
+                        android:layout_height="14dp"
+                        android:layout_marginEnd="4dp"
+                        app:srcCompat="@drawable/ic_fire" />
+
+                    <TextView
+                        android:id="@+id/tV_temp6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:text="\?? °C"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_RGB6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tV_RGB6"
+                        android:layout_width="28dp"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="RGB"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tV_RGBvalue6R"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="4dp"
+                        android:gravity="center"
+                        android:text="\??"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tV_RGBvalue6G"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="4dp"
+                        android:gravity="center"
+                        android:text="\??"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tV_RGBvalue6B"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="4dp"
+                        android:gravity="center"
+                        android:text="\??"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_disconnect6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="@string/disconnect"
+                    android:textColor="@color/secondary_text_material_light"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout> <!-- Device 6 Controls -->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout> <!-- Main Layout -->
+
+</androidx.core.widget.NestedScrollView>
