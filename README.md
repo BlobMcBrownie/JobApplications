@@ -7,7 +7,10 @@
 
 # Portfolio
 - Python
+  - GeoJSON Map Animation (plotly, NumPy, Pandas)
   - Spam filter
+- PostgreSQL
+  - Database of Universities
 - Java
   - Chess Engine for Windows
 - Android (Kotlin)
