@@ -9,6 +9,8 @@
 - Python
   - GeoJSON Map Animation (plotly, NumPy, Pandas)
   - Spam filter
+- Python & PDDL
+  - Real-life traffic control https://github.com/Matyxus/UTC-v2
 - PostgreSQL
   - Database of Universities
 - Java
