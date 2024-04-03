@@ -7,6 +7,8 @@
 
 # Portfolio
 - Python
+  - [Heart of the Matter: A Deep Dive into Germany's Cardiovascular Diseases](https://github.com/sykoravojtech/IHD_germany_2024)
+  - [Proximal Policy Optimization algorithm on a Car Racing environment with wind added](https://github.com/sykoravojtech/PPOthesis)
   - GeoJSON Map Animation (plotly, NumPy, Pandas)
   - Spam filter
 - Python & PDDL
