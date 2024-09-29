@@ -7,7 +7,7 @@
 
 # Portfolio
 - Python
-  - Currently working with Self-Supervised Video Transformers for video classification and captioning (2024)
+  - [Self-Supervised Video Transformers for video classification and captioning (2024)](https://github.com/sykoravojtech/PracticalML_2024)
   - [Heart of the Matter: A Deep Dive into Germany's Cardiovascular Diseases (2023)](https://github.com/sykoravojtech/IHD_germany_2024)
   - [Proximal Policy Optimization algorithm on a Car Racing environment with wind added (2023)](https://github.com/sykoravojtech/PPOthesis)
   - [Urban Traffic Control (2023)](https://github.com/Matyxus/UTC-v2) (paper on the way)
